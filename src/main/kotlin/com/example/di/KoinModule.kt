@@ -8,7 +8,7 @@ import com.example.data.repository.UserDataSourceImpl
 import com.example.domain.repository.UserDataSource
 val koinModule = module {
     single {
-        KMongo.createClient(System.getenv("MONGODB_URI"))
+        KMongo.createClient()
             .coroutine
             .getDatabase(DATABASE_NAME)
     }

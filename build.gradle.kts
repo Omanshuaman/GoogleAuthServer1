@@ -6,26 +6,23 @@ val koinVersion: String by project
 
 plugins {
     application
-    kotlin("jvm") version "1.7.0"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.0"
+    kotlin("jvm") version "1.6.10"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.6.10"
 }
 
 group = "com.example"
 version = "0.0.1"
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
-
-//    val isDevelopment: Boolean = project.ext.has("development")
-//    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
 tasks {
     create("stage").dependsOn("installDist")
 }
+
 repositories {
     mavenCentral()
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
-
 }
 
 dependencies {
@@ -56,5 +53,5 @@ dependencies {
     implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")
 
     // Google Client API Library
-    implementation("com.google.api-client:google-api-client:1.34.0")
+    implementation("com.google.api-client:google-api-client:1.33.2")
 }
